@@ -119,9 +119,9 @@ export default function CourseInformationForm() {
             JSON.stringify(data.courseRequirements)
           )
         }
-        if (currentValues.courseImage !== course.thumbnail) {
-          formData.append("thumbnailImage", data.courseImage)
-        }
+        // if (currentValues.courseImage !== course.thumbnail) {
+        //   formData.append("thumbnailImage", data.courseImage)
+        // }
         // console.log("Edit Form data: ", formData)
         setLoading(true)
         const result = await editCourseDetails(formData, token)
@@ -145,7 +145,7 @@ export default function CourseInformationForm() {
     formData.append("category", data.courseCategory)
     formData.append("status", COURSE_STATUS.DRAFT)
     formData.append("instructions", JSON.stringify(data.courseRequirements))
-    formData.append("thumbnailImage", data.courseImage)
+    // formData.append("thumbnailImage", data.courseImage)
     setLoading(true)
     const result = await addCourseDetails(formData, token)
     if (result) {
@@ -258,14 +258,14 @@ export default function CourseInformationForm() {
         getValues={getValues}
       />
       {/* Course Thumbnail Image */}
-      <Upload
+      {/* <Upload
         name="courseImage"
         label="Course Thumbnail"
         register={register}
         setValue={setValue}
         errors={errors}
         editData={editCourse ? course?.thumbnail : null}
-      />
+      /> */}
       {/* Benefits of the course */}
       <div className="flex flex-col space-y-2">
         <label className="text-sm text-richblack-5" htmlFor="courseBenefits">
